@@ -1,0 +1,15 @@
+                       PARETO
+df[['produto_produto','produto_valor']].groupby('produto_produto').sum().produto_valor.sort_values(ascending=False)
+fig,ax=plt.subplots(figsize=(15,5))
+ax.bar(graf_dados.index,graf_dados.values.cumsum()/graf_dados.values.sum()*100,color='C1')
+ax=ax.twinx()
+ax2.plot(graf_dados.index,graf_dados.values.cumsum()/graf_dados.values.sum()*100,color='C2')
+
+df[['produto_produto','produto_valor']].groupby('produto_produto').sum().produto_valor.sort_values(ascending=False)
+fig,ax = plt.subplots(figsize=(15,5))
+ax.bar(graf_dados.index,graf_dados.values,color='C0')
+ax=ax.twinx()
+ax2.plot(graf_dados.index,graf_dados.values.cumsum()/graf_dados.values.sum()*100,color='C1',marker='D')
+ax2.yaxis.set_major_formatter(PercentFormatter())
+plt.ylim(0,110)
+plt.title('Pareto de Receita de Produto')
